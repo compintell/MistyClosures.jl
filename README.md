@@ -6,8 +6,8 @@
 
 Marginally less opaque closures.
 
-Specifically, a `MistyClosure` is just comprises an `OpaqueClosure` and an `IRCode`.
-This is useful if you want to look up the `IRCode` used to generate an `OpaqueClosure`.
+Specifically, a `MistyClosure` is comprises an `OpaqueClosure` and an `IRCode`.
+This is useful if you generate an `OpaqueClosure` from an `IRCode`, and want to be able to retrieve the `IRCode` later on.
 
 ## Recommended Use
 
