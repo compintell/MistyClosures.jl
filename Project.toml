@@ -1,6 +1,6 @@
 name = "MistyClosures"
 uuid = "dbe65cb8-6be2-42dd-bbc5-4196aaced4f4"
-authors = ["Will Tebbutt", "Frames White", "and Hong Ge"]
+authors = ["Will Tebbutt", "Frames White", "Hong Ge"]
 version = "1.0.0"
 
 [compat]
