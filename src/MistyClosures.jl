@@ -6,11 +6,9 @@ using Core.Compiler: IRCode
 struct MistyClosure{Toc<:OpaqueClosure}
     oc::Toc
     ir::IRCode
-    function MistyClosure(ir::IRCode; kwargs...)
-        oc = OpaqueClosure(ir; kwargs...)
-        return new{typeof(oc)}(oc, ir)
-    end
 end
+
+MistyClosure(ir::IRCode; kwargs...) =  MistyClosure(OpaqueClosure(ir; kwargs...), ir)
 
 (mc::MistyClosure)(x::Vararg{Any, N}) where {N} = mc.oc(x...)
 
