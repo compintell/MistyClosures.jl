@@ -12,4 +12,7 @@ using Core: OpaqueClosure
     # Default constructor.
     mc_default = MistyClosure(OpaqueClosure(ir; do_compile=true), ir)
     @test @inferred(mc_default(5.0) == sin(5.0))
+
+    # deepcopy
+    @test deepcopy(mc) isa typeof(mc)
 end
