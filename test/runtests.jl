@@ -15,4 +15,9 @@ using Core: OpaqueClosure
 
     # deepcopy
     @test deepcopy(mc) isa typeof(mc)
+
+    # printing -- we shouldn't see the IRCode, because it's often quite a lot.
+    io = IOBuffer()
+    show(io, mc)
+    @test String(take!(io)) == "MistyClosure (::Float64)::Float64->◌"
 end
