@@ -10,7 +10,9 @@ struct MistyClosure{Toc<:OpaqueClosure}
     ir::IRCode
 end
 
-MistyClosure(ir::IRCode; kwargs...) =  MistyClosure(OpaqueClosure(ir; kwargs...), ir)
+function MistyClosure(ir::IRCode, env...; kwargs...)
+    return MistyClosure(OpaqueClosure(ir, env...; kwargs...), ir)
+end
 
 (mc::MistyClosure)(x::Vararg{Any, N}) where {N} = mc.oc(x...)
 
