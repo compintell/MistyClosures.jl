@@ -16,7 +16,7 @@ end
     @test @inferred(mc(5.0)) == sin(5.0)
 
     # Default constructor.
-    mc_default = MistyClosure(OpaqueClosure(ir; do_compile=true), ir)
+    mc_default = MistyClosure(OpaqueClosure(ir; do_compile=true), Ref(ir))
     @test @inferred(mc_default(5.0) == sin(5.0))
 
     # Recommended constructor with env.
@@ -25,7 +25,7 @@ end
     @test @inferred(mc_with_env(4.0)) == Foo(5.0)(4.0)
 
     # Default constructor with env.
-    mc_env_default = MistyClosure(OpaqueClosure(ir_foo, 4.0; do_compile=true), ir_foo)
+    mc_env_default = MistyClosure(OpaqueClosure(ir_foo, 4.0; do_compile=true), Ref(ir_foo))
     @test @inferred(mc_env_default(5.0) == Foo(5.0)(4.0))
 
     # deepcopy
